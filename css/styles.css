@@ -1,0 +1,145 @@
+:root {
+    --dark-color: #161a49;
+    --light-color: #c7c0b8;
+}
+nav {
+    background-color: var(--dark-color);
+    color: var(--light-color)
+}
+nav ul li {
+    list-style-type: none;
+    display: inline-flex;
+    padding: 0 1em;
+    margin: 3px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+nav ul li:hover {
+    border-color: var(--light-color);
+    border-style: solid;
+    border-width: 3px;
+    margin: 0;
+    cursor: pointer;
+}
+.nav-area {
+    grid-area: nav;
+    text-align: left;
+    padding-left: 5%;
+}
+body {
+    text-align: center;
+    background-color: var(--light-color);
+    color:var(--dark-color);
+    margin: 0;
+}
+.card:hover {
+    border: whitesmoke;
+    background-color: #b7b1ab;
+    border-style: solid;
+    border-width: 3px;
+    margin: 0;
+}
+main {
+    width: calc(100vw - 1em)
+}
+main ul li {
+    list-style-type: none;
+}
+.main-header {
+    grid-area: header;
+}
+header {
+    font-size: 2em;
+    text-shadow: 2px 2px #99999f;
+}
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+.card {
+    grid-area: card;
+    margin: 3px;
+}
+/* image container */
+.main-image-container {
+    grid-area: main;
+}
+.cards {
+    padding: 0;
+    display: grid;
+    text-align: center
+}
+.card {
+    padding-top: 2em;
+}
+.card img {
+    border-radius: .25em;
+    border-style: solid;
+    border-width: 1px;
+}
+.main-footer {
+    grid-area: footer;
+}
+footer ul li {
+    list-style-type: none;
+    display: inline-flex;
+    padding: 0 1em;
+    margin: 3px;
+    padding: .25em 5em;
+}
+footer ul li a {
+    text-decoration: none;
+    color: var(--light-color);
+}
+footer ul li:hover {
+    border-color: var(--light-color);
+    border-style: solid;
+    border-width: 3px;
+    margin: 0;
+    cursor: pointer;
+}
+.site {
+    display: grid;
+    grid-template-areas: 
+    "nav"
+    "header"
+    "main"
+    "footer";
+}
+
+
+@supports (grid-area: auto) {
+    @media screen and (min-width: 700px) {
+        .site {
+            grid-template-areas: 
+            "nav nav"
+            "header header"
+            "main main"
+            "footer footer";    
+        }
+        .cards {
+            padding: auto;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            
+        }
+        
+            
+
+    }
+    @media screen and (min-width: 1025px) {
+        .site {
+            grid-template-areas: 
+            "nav nav nav"
+            "header header header"
+            "main main main"
+            "footer footer footer";    
+        }
+        .cards {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            
+        }
+
+    }
+}
